@@ -20,6 +20,7 @@ EOF
 Проверил
 
 > cmake ..
+
 > cmake -B build
 
 ![Снимок экрана (102)](https://user-images.githubusercontent.com/55855887/223981018-99369929-381f-46cf-8716-71eda6dd0426.png)
@@ -46,6 +47,7 @@ EOF
 Проверил
 
 > cmake ..
+
 > cmake -B build
 
 ![Снимок экрана (104)](https://user-images.githubusercontent.com/55855887/223984002-f97e7ec3-3586-47e2-ba47-7c5c830f56ff.png)
@@ -66,6 +68,7 @@ target_link_libraries(hello_world formatter_ex_lib)
 Проверил
 
 > cmake ..
+
 > cmake -B build
 
 ![Снимок экрана (107)](https://user-images.githubusercontent.com/55855887/224024880-4dcf34c2-b3fc-4111-a4a1-8c09da0cab5d.png)
