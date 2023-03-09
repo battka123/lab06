@@ -10,11 +10,11 @@ wget https://github.com/tp-labs/lab03/blob/master/formatter_lib/formatter.cpp
 wget https://github.com/tp-labs/lab03/blob/master/formatter_lib/formatter.h
 cd ..
 cat >> CMakeLists.txt <<EOF
-  cmake_minimum_required(VERSION 3.22.1 FATAL_ERROR)
-  set(CMAKE_CXX_COMPILER "/usr/bin/g++-11") 
-  project(formatter) 
-  set(SOURCE_LIB ~/lab03/formatter_lib/src/formatter.cpp ~/lab03/formatter_lib/src/formatter.h)
-  add_library(mylib STATIC ${SOURCE_LIB})
+cmake_minimum_required(VERSION 3.22.1)
+project(formatter_lib)
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+add_library(formatter_lib STATIC ${CMAKE_CURRENT_SOURCE_DIR}/src/formatter.cpp)
 EOF
 ```
 Проверил: `cmake ..`, `cmake -B build`, `cmake --build build`.
@@ -34,11 +34,16 @@ EOF
  wget https://github.com/tp-labs/lab03/blob/master/formatter_ex_lib/formatter_ex.cpp
  cd ..
  cat >> CMakeLists.txt <<EOF
-  cmake_minimum_required(VERSION 3.22.1 FATAL_ERROR)
-  set(CMAKE_CXX_COMPILER "/usr/bin/g++-11") 
-  project(formatter) 
-  set(SOURCE_LIB ~/lab03/formatter_lib/src/formatter.cpp ~/lab03/formatter_lib/src/formatter.h)
-  add_library(mylib STATIC ${SOURCE_LIB})
+ cmake_minimum_required(VERSION 3.22.1)
+project(formatter_ex_lib)
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../formatter_lib formatter_lib_dir)
+add_library(formatter_ex_lib STATIC ${CMAKE_CURRENT_SOURCE_DIR}/src/formatter_ex.cpp)
+target_include_directories(formatter_ex_lib PUBLIC
+${CMAKE_CURRENT_SOURCE_DIR}/../formatter_lib
+)
+target_link_libraries(formatter_ex_lib formatter_lib)
 EOF
 ```
 Проверил: `cmake ..`, `cmake -B build`, `cmake --build build`.
