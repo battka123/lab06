@@ -1,0 +1,3 @@
+/home/ivan/lab03/formatter_lib/src/CMakeFiles/formatter_lib.dir
+/home/ivan/lab03/formatter_lib/src/CMakeFiles/edit_cache.dir
+/home/ivan/lab03/formatter_lib/src/CMakeFiles/rebuild_cache.dir
