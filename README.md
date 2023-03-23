@@ -80,7 +80,7 @@ jobs:
 ```
 git add .github
 git commit -m "Add files"
-git push origin main
+git push origin master
 ```
 
 Проверяю на Github Action. Все тесты пройдены.
